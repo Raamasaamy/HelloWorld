@@ -3,36 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Flight Form</title>
+    <title>TestFlight Details Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        label {
+            margin-top: 10px;
+            display: block;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Tester Details</h1>
-    <form id="appDetailsForm">
-        <label for="appName">App Name:</label>
-        <input type="text" id="appName" name="appName" required><br><br>
-        
-        <label for="feedbackemailid">Feedback email ID:</label>
-        <textarea id="feedbackemailid" name="feedbackemailid" required></textarea><br><br>
-        
-        <label for="testerFirstName">Tester First Name:</label>
-        <input type="text" id="testerFirstName" name="testerFirstName" required><br><br>
-  
-        <label for="testerLastName">Tester Last Name:</label>
-        <input type="text" id="testerLastName" name="testerLastName" required><br><br>
 
-        <label for="testerEmailID">Tester Email ID:</label>
-        <input type="text" id="testerEmailID" name="testerEmailID" required><br><br>
-        
-        <input type="submit" value="Submit">
-    </form>
+<h2>Enter TestFlight Details</h2>
+<form action="/submit" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
 
-    <script>
-        document.getElementById('appDetailsForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
-            console.log(data); // You can send this data to your server or API
-        });
-    </script>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="appVersion">App Version:</label>
+    <input type="text" id="appVersion" name="appVersion" required>
+
+    <label for="notes">Additional Notes:</label>
+    <textarea id="notes" name="notes" rows="4"></textarea>
+
+    <button type="submit">Submit</button>
+</form>
+
 </body>
 </html>
