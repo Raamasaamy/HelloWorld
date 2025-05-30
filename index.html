@@ -63,5 +63,14 @@
     <button type="submit">Submit</button>
 </form>
 
+<script>
+    document.getElementById('appDetailsForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
+        console.log(data); // You can send this data to your server or API
+    });
+</script>
+    
 </body>
 </html>
